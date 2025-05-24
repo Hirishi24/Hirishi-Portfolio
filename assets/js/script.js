@@ -157,3 +157,26 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// avatar modal logic
+const avatar = document.querySelector("#avatar"); // the <img> inside avatar-box
+const avatarModal = document.getElementById("avatarModal");
+const closeAvatarModalBtn = document.getElementById("closeAvatarModal");
+
+if (avatar) {
+  avatar.addEventListener("click", () => {
+    avatarModal.style.display = "block";
+  });
+}
+
+if (closeAvatarModalBtn) {
+  closeAvatarModalBtn.addEventListener("click", () => {
+    avatarModal.style.display = "none";
+  });
+}
+
+window.addEventListener("click", (event) => {
+  if (event.target === avatarModal) {
+    avatarModal.style.display = "none";
+  }
+});
