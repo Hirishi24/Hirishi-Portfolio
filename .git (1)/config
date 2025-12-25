@@ -1,0 +1,18 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://github.com/Hirishi24/Hirishi-Portfolio.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+	gk-last-accessed = 2025-12-21T17:27:44.903Z
+[branch "fixbugs"]
+	remote = origin
+	merge = refs/heads/fixbugs
+	vscode-merge-base = origin/main
