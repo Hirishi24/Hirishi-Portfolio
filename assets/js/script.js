@@ -1,6 +1,37 @@
 'use strict';
 
 
+const splashScreen = document.getElementById("splashScreen");
+const splashViewBtn = document.getElementById("splashViewBtn");
+
+if (splashScreen) {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const splashDuration = prefersReducedMotion ? 1200 : 3200;
+  const splashFadeDuration = prefersReducedMotion ? 250 : 1400;
+  let isSplashClosed = false;
+
+  const closeSplash = function () {
+    if (isSplashClosed) return;
+    isSplashClosed = true;
+
+    splashScreen.classList.add("is-fading");
+    splashScreen.classList.add("hidden");
+    document.body.classList.remove("is-loading");
+    document.body.classList.add("splash-done");
+
+    window.setTimeout(function () {
+      splashScreen.remove();
+    }, splashFadeDuration + 80);
+  };
+
+  window.setTimeout(closeSplash, splashDuration);
+
+  if (splashViewBtn) {
+    splashViewBtn.addEventListener("click", closeSplash);
+  }
+}
+
+
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
@@ -139,22 +170,44 @@ for (let i = 0; i < formInputs.length; i++) {
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
+const pageShortcutButtons = document.querySelectorAll("[data-open-page]");
+
+const openPage = function (pageName) {
+  const targetPage = pageName.trim().toLowerCase();
+  let hasMatch = false;
+
+  for (let i = 0; i < pages.length; i++) {
+    if (targetPage === pages[i].dataset.page) {
+      hasMatch = true;
+      break;
+    }
+  }
+
+  if (!hasMatch) return;
+
+  for (let i = 0; i < pages.length; i++) {
+    if (targetPage === pages[i].dataset.page) {
+      pages[i].classList.add("active");
+      navigationLinks[i].classList.add("active");
+    } else {
+      pages[i].classList.remove("active");
+      navigationLinks[i].classList.remove("active");
+    }
+  }
+
+  window.scrollTo(0, 0);
+}
 
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
+    openPage(this.textContent);
+  });
+}
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
-
+for (let i = 0; i < pageShortcutButtons.length; i++) {
+  pageShortcutButtons[i].addEventListener("click", function () {
+    openPage(this.dataset.openPage);
   });
 }
 
