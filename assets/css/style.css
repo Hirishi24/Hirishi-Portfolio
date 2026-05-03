@@ -765,6 +765,107 @@ section[id]{scroll-margin-top:20px}
 .svc-text{font-size:13.5px;color:var(--text-2);line-height:1.7}
 
 /* =============================================
+   FREELANCE
+   ============================================= */
+.section-sub{
+  font-size:15px;color:var(--text-2);max-width:600px;
+  margin:12px auto 0;line-height:1.7;text-align:center;
+}
+
+.freelance-offers{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-bottom:40px;
+}
+@media(max-width:900px){.freelance-offers{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.freelance-offers{grid-template-columns:1fr}}
+
+.fl-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(183,110,121,.15);
+  border-radius:var(--r-lg);
+  padding:30px 26px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  position:relative;overflow:hidden;
+}
+.fl-card::before{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(183,110,121,.06),transparent 60%);
+  opacity:0;transition:opacity .3s var(--ease);
+}
+.fl-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(183,110,121,.4);
+  box-shadow:0 16px 48px rgba(183,110,121,.12);
+}
+.fl-card:hover::before{opacity:1}
+[data-theme="light"] .fl-card{
+  background:rgba(255,255,255,0.7);
+  border-color:rgba(155,79,90,.18);
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+}
+[data-theme="light"] .fl-card:hover{
+  background:#fff;
+  border-color:rgba(155,79,90,.4);
+  box-shadow:0 12px 40px rgba(155,79,90,.12);
+}
+
+.fl-icon{
+  width:52px;height:52px;border-radius:var(--r-md);
+  background:linear-gradient(135deg,rgba(183,110,121,.18),rgba(232,164,170,.1));
+  border:1px solid rgba(183,110,121,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;color:var(--accent);
+}
+
+.fl-title{
+  font-family:var(--ff-head);font-size:17px;font-weight:700;
+  color:var(--text-1);
+}
+.fl-text{font-size:13.5px;color:var(--text-2);line-height:1.7}
+
+.fl-list{
+  list-style:none;display:flex;flex-direction:column;gap:7px;
+  margin-top:4px;
+}
+.fl-list li{
+  font-size:13px;color:var(--text-2);
+  padding-left:18px;position:relative;
+}
+.fl-list li::before{
+  content:"✦";
+  position:absolute;left:0;top:0;
+  font-size:9px;color:var(--accent);
+  line-height:1.6;
+}
+
+/* CTA Banner */
+.fl-cta{
+  background:linear-gradient(135deg,rgba(183,110,121,.15),rgba(232,164,170,.08));
+  border:1px solid rgba(183,110,121,.2);
+  border-radius:var(--r-xl);
+  padding:36px 40px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  flex-wrap:wrap;
+}
+[data-theme="light"] .fl-cta{
+  background:linear-gradient(135deg,rgba(155,79,90,.08),rgba(183,110,121,.04));
+  border-color:rgba(155,79,90,.2);
+}
+.fl-cta-text h3{
+  font-family:var(--ff-head);font-size:20px;font-weight:700;
+  color:var(--text-1);margin-bottom:6px;
+}
+.fl-cta-text p{font-size:14px;color:var(--text-2)}
+.fl-cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  white-space:nowrap;padding:14px 32px;font-size:15px;
+}
+
+/* =============================================
    CONTACT
    ============================================= */
 .contact-grid{
