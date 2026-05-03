@@ -826,17 +826,44 @@ a.cdi-value:hover{color:var(--accent-2)}
    BACK TO TOP
    ============================================= */
 .back-to-top{
-  position:fixed;bottom:28px;left:28px;z-index:999;
+  position:fixed;bottom:90px;right:28px;z-index:999;
   width:44px;height:44px;border-radius:var(--r-md);
   background:var(--grad);color:#fff;font-size:18px;
   display:flex;align-items:center;justify-content:center;
   box-shadow:0 4px 20px rgba(245,158,11,.4);
   opacity:0;visibility:hidden;
   transform:translateY(8px);
-  transition:opacity var(--t),visibility var(--t),transform var(--t);
+  transition:opacity var(--t),visibility var(--t),transform var(--t),box-shadow var(--t);
 }
 .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
 .back-to-top:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,158,11,.5)}
+
+/* Tooltip */
+.back-to-top::before{
+  content:"Back to Home";
+  position:absolute;right:54px;top:50%;transform:translateY(-50%);
+  background:rgba(15,15,15,0.92);
+  backdrop-filter:blur(8px);
+  color:#fff;font-size:11px;font-weight:600;letter-spacing:.3px;
+  white-space:nowrap;
+  padding:5px 10px;border-radius:6px;
+  opacity:0;pointer-events:none;
+  transition:opacity .2s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+.back-to-top::after{
+  content:"";
+  position:absolute;right:50px;top:50%;transform:translateY(-50%);
+  border:5px solid transparent;
+  border-left-color:rgba(15,15,15,0.92);
+  opacity:0;pointer-events:none;
+  transition:opacity .2s ease;
+}
+.back-to-top:hover::before,
+.back-to-top:hover::after{opacity:1}
+[data-theme="light"] .back-to-top::before{
+  background:rgba(30,30,30,0.88);
+}
 
 /* =============================================
    LIGHT THEME OVERRIDES (hardcoded values)
