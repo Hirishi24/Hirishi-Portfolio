@@ -251,17 +251,45 @@ if (backToTop) {
    ============================================= */
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = contactForm.querySelector('button[type="submit"]');
     const original = btn.innerHTML;
-    btn.innerHTML = '<ion-icon name="checkmark-outline"></ion-icon> Message Sent!';
-    btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style.background = '';
-      contactForm.reset();
-    }, 3000);
+
+    btn.innerHTML = '<ion-icon name="reload-outline"></ion-icon> Sending…';
+    btn.disabled = true;
+    btn.style.opacity = '0.8';
+
+    try {
+      const res = await fetch('https://formspree.io/f/mnjwjgbd', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(contactForm)
+      });
+
+      if (res.ok) {
+        btn.innerHTML = '<ion-icon name="checkmark-outline"></ion-icon> Message Sent!';
+        btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+        btn.style.opacity = '1';
+        contactForm.reset();
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 4000);
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      btn.innerHTML = '<ion-icon name="alert-circle-outline"></ion-icon> Failed — try again';
+      btn.style.background = 'linear-gradient(135deg,#ef4444,#dc2626)';
+      btn.style.opacity = '1';
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    }
   });
 }
 
