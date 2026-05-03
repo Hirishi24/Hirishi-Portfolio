@@ -937,8 +937,8 @@ body,
   .hero-socials{justify-content:center}
   .hero-bio{margin-inline:auto}
 
-  /* Image: smaller, centered, no badge overflow */
-  .hero-image{width:100%;justify-content:center}
+  /* Image first on mobile */
+  .hero-image{width:100%;justify-content:center;order:-1}
   .hero-img-wrapper{width:220px;height:220px}
 
   /* Badges: scale down and keep inside the image circle */
