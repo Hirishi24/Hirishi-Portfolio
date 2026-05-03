@@ -249,10 +249,56 @@ if (backToTop) {
 /* =============================================
    CONTACT FORM
    ============================================= */
+/* =============================================
+   CUSTOM FORM VALIDATION HELPERS
+   ============================================= */
+function showFieldError(input, message) {
+  input.classList.add('invalid');
+  let err = input.parentElement.querySelector('.field-error');
+  if (err) err.remove();
+  err = document.createElement('span');
+  err.className = 'field-error';
+  err.textContent = message;
+  input.parentElement.appendChild(err);
+  input.addEventListener('input', () => {
+    input.classList.remove('invalid');
+    const e = input.parentElement.querySelector('.field-error');
+    if (e) e.remove();
+  }, { once: true });
+}
+
+function validateForm(form) {
+  let valid = true;
+  const name    = form.querySelector('#name');
+  const email   = form.querySelector('#email');
+  const subject = form.querySelector('#subject');
+  const message = form.querySelector('#message');
+
+  if (!name.value.trim()) {
+    showFieldError(name, 'Please enter your full name'); valid = false;
+  }
+  if (!email.value.trim()) {
+    showFieldError(email, 'Please enter your email address'); valid = false;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+    showFieldError(email, 'Please enter a valid email address'); valid = false;
+  }
+  if (!subject.value.trim()) {
+    showFieldError(subject, 'Please enter a subject'); valid = false;
+  }
+  if (!message.value.trim()) {
+    showFieldError(message, 'Please write your message'); valid = false;
+  }
+  return valid;
+}
+
+/* =============================================
+   CONTACT FORM
+   ============================================= */
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (!validateForm(contactForm)) return;
     const btn = contactForm.querySelector('button[type="submit"]');
     const original = btn.innerHTML;
 
