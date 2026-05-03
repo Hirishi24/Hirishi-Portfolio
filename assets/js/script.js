@@ -250,6 +250,45 @@ if (backToTop) {
    CONTACT FORM
    ============================================= */
 /* =============================================
+   SUCCESS OVERLAY
+   ============================================= */
+function showSuccessOverlay() {
+  const overlay = document.getElementById('formSuccess');
+  if (!overlay) return;
+
+  // Spawn rose-gold particles
+  const colors = ['#b76e79','#e8a4aa','#f0c4c8','#c9848a','#fdf0f1'];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'success-particle';
+    const angle = (i / 18) * 360;
+    const rad   = angle * (Math.PI / 180);
+    const dist  = 60 + Math.random() * 80;
+    p.style.cssText = `
+      left:50%; top:50%;
+      background:${colors[i % colors.length]};
+      --tx:${Math.round(Math.cos(rad) * dist)}px;
+      --ty:${Math.round(Math.sin(rad) * dist)}px;
+      --dur:${(0.9 + Math.random() * 0.6).toFixed(2)}s;
+      --delay:${(Math.random() * 0.3).toFixed(2)}s;
+      border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
+      width:${4 + Math.floor(Math.random() * 5)}px;
+      height:${4 + Math.floor(Math.random() * 5)}px;
+    `;
+    overlay.appendChild(p);
+    setTimeout(() => p.remove(), 2000);
+  }
+
+  overlay.classList.add('visible');
+  setTimeout(() => {
+    overlay.classList.add('hiding');
+    setTimeout(() => {
+      overlay.classList.remove('visible','hiding');
+    }, 400);
+  }, 4000);
+}
+
+/* =============================================
    CUSTOM FORM VALIDATION HELPERS
    ============================================= */
 function showFieldError(input, message) {
@@ -314,15 +353,11 @@ if (contactForm) {
       });
 
       if (res.ok) {
-        btn.innerHTML = '<ion-icon name="checkmark-outline"></ion-icon> Message Sent!';
-        btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
-        btn.style.opacity = '1';
         contactForm.reset();
-        setTimeout(() => {
-          btn.innerHTML = original;
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 4000);
+        btn.innerHTML = original;
+        btn.style.background = '';
+        btn.disabled = false;
+        showSuccessOverlay();
       } else {
         throw new Error('Server error');
       }

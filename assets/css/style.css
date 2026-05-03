@@ -799,6 +799,7 @@ a.cdi-value:hover{color:var(--accent-2)}
   -webkit-backdrop-filter:blur(28px) saturate(180%);
   border:1px solid rgba(255,255,255,0.07);
   border-radius:var(--r-xl);padding:32px;
+  position:relative;overflow:hidden;
   box-shadow:0 8px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
 }
 [data-theme="light"] .contact-form-wrap{
@@ -806,6 +807,77 @@ a.cdi-value:hover{color:var(--accent-2)}
   border:1px solid rgba(255,255,255,0.8);
   box-shadow:0 8px 40px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9);
 }
+/* ---- FORM SUCCESS OVERLAY ---- */
+.form-success{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:20px;text-align:center;
+  background:rgba(13,11,12,0.96);
+  backdrop-filter:blur(12px);
+  border-radius:var(--r-xl);
+  z-index:10;
+  opacity:0;pointer-events:none;
+  transition:opacity .4s var(--ease);
+}
+[data-theme="light"] .form-success{background:rgba(253,246,247,0.96)}
+.form-success.visible{opacity:1;pointer-events:auto}
+.form-success.hiding{opacity:0}
+
+/* Checkmark ring */
+.success-ring{
+  width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,#b76e79,#e8a4aa);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  animation:ring-pop .5s var(--ease) both;
+  box-shadow:0 0 0 0 rgba(183,110,121,.5);
+}
+@keyframes ring-pop{
+  0%{transform:scale(0);opacity:0}
+  70%{transform:scale(1.12)}
+  100%{transform:scale(1);opacity:1}
+}
+.success-ring::after{
+  content:"";position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid rgba(183,110,121,.35);
+  animation:ring-pulse 2s ease infinite 0.5s;
+}
+@keyframes ring-pulse{
+  0%{transform:scale(1);opacity:.7}
+  100%{transform:scale(1.4);opacity:0}
+}
+.success-check{
+  color:#fff;font-size:36px;
+  animation:check-draw .4s var(--ease) .35s both;
+}
+@keyframes check-draw{
+  0%{transform:scale(0) rotate(-20deg);opacity:0}
+  100%{transform:scale(1) rotate(0);opacity:1}
+}
+.success-title{
+  font-family:var(--ff-head);font-size:22px;font-weight:700;
+  color:var(--text-1);
+  animation:fade-up .4s var(--ease) .5s both;
+}
+.success-msg{
+  font-size:14px;color:var(--text-2);max-width:280px;line-height:1.6;
+  animation:fade-up .4s var(--ease) .65s both;
+}
+@keyframes fade-up{
+  0%{opacity:0;transform:translateY(12px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+/* Floating particles */
+.success-particle{
+  position:absolute;width:6px;height:6px;border-radius:50%;
+  animation:particle-fly var(--dur,1.4s) var(--ease) var(--delay,0s) both;
+  pointer-events:none;
+}
+@keyframes particle-fly{
+  0%{transform:translate(0,0) scale(1);opacity:1}
+  100%{transform:translate(var(--tx,0px),var(--ty,-80px)) scale(0);opacity:0}
+}
+
 .contact-form{display:flex;flex-direction:column;gap:18px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:560px){.form-row{grid-template-columns:1fr}}
