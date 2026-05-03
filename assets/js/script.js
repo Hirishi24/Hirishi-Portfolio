@@ -108,18 +108,99 @@ function typeLoop() {
 typeLoop();
 
 /* =============================================
-   REVEAL ON SCROLL
+   SCROLL PROGRESS BAR
+   ============================================= */
+const scrollProgress = document.getElementById('scrollProgress');
+if (scrollProgress) {
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = pct + '%';
+  }, { passive: true });
+}
+
+/* =============================================
+   HERO PARALLAX — shapes drift on scroll
+   ============================================= */
+const heroShapes = document.querySelectorAll('.shape');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  heroShapes.forEach((s, i) => {
+    const dir = i % 2 === 0 ? 1 : -1;
+    s.style.transform = `translateY(${y * 0.12 * dir}px)`;
+  });
+}, { passive: true });
+
+/* =============================================
+   REVEAL ON SCROLL — all directions
    ============================================= */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      setTimeout(() => entry.target.classList.add('visible'), i * 90);
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+  .forEach(el => revealObserver.observe(el));
+
+/* =============================================
+   COUNTER ANIMATION
+   ============================================= */
+function animateCounter(el) {
+  const target = parseInt(el.dataset.count, 10);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const duration = 1400;
+  const startTime = performance.now();
+
+  function update(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(ease * target);
+    el.textContent = prefix + current.toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+/* =============================================
+   CARD 3D TILT ON MOUSE MOVE
+   ============================================= */
+function addTilt(selector, intensity = 8) {
+  document.querySelectorAll(selector).forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      card.style.transform = `perspective(800px) rotateY(${dx * intensity}deg) rotateX(${-dy * intensity}deg) translateZ(6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+addTilt('.skill-card', 6);
+addTilt('.svc-card', 5);
+addTilt('.hero-badge', 10);
 
 /* =============================================
    SKILL BARS
