@@ -382,7 +382,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(this.getAttribute('href'));
     if (!target) return;
     e.preventDefault();
-    const offset = (navbar ? navbar.offsetHeight : 70) + 24;
+    const offset = 20;
     window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
   });
 });
