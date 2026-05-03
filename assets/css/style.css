@@ -882,15 +882,83 @@ body,
 .info-card,.footer,.section-alt{transition:background var(--t),border-color var(--t),color var(--t),box-shadow var(--t)}
 
 /* =============================================
-   RESPONSIVE TWEAKS
+   RESPONSIVE — TABLET (max 900px)
    ============================================= */
-@media(max-width:599px){
-  .hero-img-wrapper{width:260px;height:260px}
-  .badge-1{bottom:10px;left:-10px}
-  .badge-2{top:10px;right:-10px}
-  .hero-actions .btn{padding:11px 20px;font-size:13px}
+@media(max-width:900px){
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE (max 767px)
+   ============================================= */
+@media(max-width:767px){
+
+  /* --- SECTION SPACING --- */
+  section{padding:64px 0}
+
+  /* --- HERO --- */
+  .hero{padding:calc(var(--nav-h) + 40px) 0 60px}
+  .hero-container{gap:32px;text-align:center}
+  .hero-text{max-width:100%}
+  .hero-actions{justify-content:center}
+  .hero-socials{justify-content:center}
+  .hero-bio{margin-inline:auto}
+
+  /* Image: smaller, centered, no badge overflow */
+  .hero-image{width:100%;justify-content:center}
+  .hero-img-wrapper{width:220px;height:220px}
+
+  /* Badges: scale down and keep inside the image circle */
+  .hero-badge{padding:7px 10px;gap:7px}
+  .badge-icon{font-size:16px}
+  .badge-label{font-size:9px}
+  .badge-value{font-size:11px}
+  .badge-1{bottom:8px;left:0px}
+  .badge-2{top:8px;right:0px}
+
+  /* --- ABOUT --- */
+  .about-grid{gap:36px;text-align:center}
+  .about-img-wrapper{margin-inline:auto}
+  .about-photo{max-width:260px}
+  .about-info-cards{grid-template-columns:1fr 1fr}
+
+  /* --- SKILLS --- */
+  .skills-grid{grid-template-columns:1fr}
+
+  /* --- TIMELINE TABS --- */
+  .timeline-tabs{width:100%;border-radius:var(--r-lg)}
+  .tab-btn{flex:1;text-align:center;padding:10px 10px;font-size:12px}
+
+  /* --- SERVICES --- */
+  .svc-grid{grid-template-columns:1fr}
+
+  /* --- CONTACT --- */
+  .contact-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+
+  /* --- FOOTER --- */
+  .footer-container{flex-direction:column;align-items:center;text-align:center;gap:12px}
+
+  /* --- BACK TO TOP --- */
+  .back-to-top{bottom:72px;right:16px;width:40px;height:40px;font-size:16px}
+}
+
+/* =============================================
+   RESPONSIVE — SMALL MOBILE (max 480px)
+   ============================================= */
+@media(max-width:480px){
+  .hero-img-wrapper{width:190px;height:190px}
+  .hero-name{font-size:clamp(32px,9vw,48px)}
+
+  /* Hide badges on very small screens to avoid clutter */
+  .hero-badge{display:none}
+
+  .hero-actions .btn{padding:11px 20px;font-size:13px;flex:1;justify-content:center}
+  .hero-actions{gap:10px}
+
   .about-info-cards{grid-template-columns:1fr}
-  .timeline-tabs{width:100%;justify-content:stretch}
-  .tab-btn{flex:1;text-align:center}
-  .footer-container{justify-content:center;text-align:center}
+
+  .section-header{margin-bottom:36px}
 }
