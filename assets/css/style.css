@@ -421,7 +421,8 @@ input,textarea{font:inherit;outline:none}
   color:var(--text-2);font-size:18px;
   transition:background var(--t),color var(--t),border-color var(--t),transform var(--t);
 }
-.social-icon img{width:18px;height:18px;object-fit:contain;display:block}
+.social-icon img{width:18px;height:18px;object-fit:contain;display:block;filter:invert(0)}
+[data-theme="light"] .social-icon img{filter:invert(1)}
 .social-icon:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-3px)}
 .social-icon.sm{width:34px;height:34px;border-radius:var(--r-sm);font-size:15px}
 .social-icon.sm img{width:15px;height:15px}
