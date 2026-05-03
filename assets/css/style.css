@@ -983,8 +983,13 @@ body,
   .hero-img-wrapper{width:190px;height:190px}
   .hero-name{font-size:clamp(32px,9vw,48px)}
 
-  /* Hide badges on very small screens to avoid clutter */
-  .hero-badge{display:none}
+  /* Keep badges visible but smaller */
+  .hero-badge{padding:5px 8px;gap:5px;border-radius:8px}
+  .badge-icon{font-size:13px}
+  .badge-label{font-size:8px}
+  .badge-value{font-size:10px}
+  .badge-1{bottom:4px;left:-4px}
+  .badge-2{top:4px;right:-4px}
 
   .hero-actions .btn{padding:11px 20px;font-size:13px;flex:1;justify-content:center}
   .hero-actions{gap:10px}
