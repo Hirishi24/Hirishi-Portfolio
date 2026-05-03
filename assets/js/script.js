@@ -1,6 +1,32 @@
 'use strict';
 
 /* =============================================
+   THEME TOGGLE — light / dark
+   ============================================= */
+(function () {
+  const root    = document.documentElement;
+  const btn     = document.getElementById('themeToggle');
+  const saved   = localStorage.getItem('theme');
+  const prefers = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  const initial = saved || prefers;
+
+  if (initial === 'light') root.setAttribute('data-theme', 'light');
+
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const isLight = root.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        root.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        root.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+})();
+
+/* =============================================
    NAVBAR — scroll behaviour + mobile drawer
    ============================================= */
 const navbar    = document.getElementById('navbar');
