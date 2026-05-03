@@ -826,7 +826,7 @@ a.cdi-value:hover{color:var(--accent-2)}
    BACK TO TOP
    ============================================= */
 .back-to-top{
-  position:fixed;bottom:28px;right:28px;z-index:999;
+  position:fixed;bottom:28px;left:28px;z-index:999;
   width:44px;height:44px;border-radius:var(--r-md);
   background:var(--grad);color:#fff;font-size:18px;
   display:flex;align-items:center;justify-content:center;
