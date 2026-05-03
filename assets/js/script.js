@@ -1,235 +1,172 @@
 'use strict';
 
+/* =============================================
+   NAVBAR — scroll behaviour + mobile drawer
+   ============================================= */
+const navbar    = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const navMenu   = document.getElementById('navMenu');
+const navLinks  = document.querySelectorAll('.nav-link');
+const backToTop = document.getElementById('backToTop');
 
-const splashScreen = document.getElementById("splashScreen");
-const splashViewBtn = document.getElementById("splashViewBtn");
-
-if (splashScreen) {
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const splashDuration = prefersReducedMotion ? 1200 : 3200;
-  const splashFadeDuration = prefersReducedMotion ? 250 : 1400;
-  let isSplashClosed = false;
-
-  const closeSplash = function () {
-    if (isSplashClosed) return;
-    isSplashClosed = true;
-
-    splashScreen.classList.add("is-fading");
-    splashScreen.classList.add("hidden");
-    document.body.classList.remove("is-loading");
-    document.body.classList.add("splash-done");
-
-    window.setTimeout(function () {
-      splashScreen.remove();
-    }, splashFadeDuration + 80);
-  };
-
-  window.setTimeout(closeSplash, splashDuration);
-
-  if (splashViewBtn) {
-    splashViewBtn.addEventListener("click", closeSplash);
-  }
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+    updateActiveNav();
+    if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
 }
 
-
-
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
-
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
-
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
-
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navMenu.classList.toggle('open');
   });
 
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
-
-
-
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-select.addEventListener("click", function () { elementToggleFunc(this); });
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
+  navMenu.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('open');
+    });
   });
 }
 
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
+/* =============================================
+   ACTIVE NAV — based on scroll position
+   ============================================= */
+function updateActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollY  = window.scrollY + 120;
 
-const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
+  sections.forEach(section => {
+    const top    = section.offsetTop;
+    const height = section.offsetHeight;
+    const id     = section.getAttribute('id');
+    const link   = document.querySelector(`.nav-link[href="#${id}"]`);
+    if (!link) return;
+    if (scrollY >= top && scrollY < top + height) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
     }
-
-  }
-
-}
-
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-
-  filterBtn[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
   });
-
 }
 
+/* =============================================
+   TYPED TEXT EFFECT
+   ============================================= */
+const roles = ['AI/ML Engineer', 'Edge Computing Researcher', 'Web Developer', 'IoT Enthusiast', 'Future Entrepreneur'];
+let roleIndex = 0, charIndex = 0, isDeleting = false;
 
+function typeLoop() {
+  const target = document.getElementById('typedText');
+  if (!target) return;
 
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
+  const current = roles[roleIndex];
+  if (!isDeleting) {
+    target.textContent = current.slice(0, ++charIndex);
+    if (charIndex === current.length) {
+      isDeleting = true;
+      setTimeout(typeLoop, 1800);
+      return;
     }
-
-  });
-}
-
-
-
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-const pageShortcutButtons = document.querySelectorAll("[data-open-page]");
-
-const openPage = function (pageName) {
-  const targetPage = pageName.trim().toLowerCase();
-  let hasMatch = false;
-
-  for (let i = 0; i < pages.length; i++) {
-    if (targetPage === pages[i].dataset.page) {
-      hasMatch = true;
-      break;
+  } else {
+    target.textContent = current.slice(0, --charIndex);
+    if (charIndex === 0) {
+      isDeleting  = false;
+      roleIndex   = (roleIndex + 1) % roles.length;
     }
   }
+  setTimeout(typeLoop, isDeleting ? 55 : 90);
+}
 
-  if (!hasMatch) return;
+typeLoop();
 
-  for (let i = 0; i < pages.length; i++) {
-    if (targetPage === pages[i].dataset.page) {
-      pages[i].classList.add("active");
-      navigationLinks[i].classList.add("active");
-    } else {
-      pages[i].classList.remove("active");
-      navigationLinks[i].classList.remove("active");
+/* =============================================
+   REVEAL ON SCROLL
+   ============================================= */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      revealObserver.unobserve(entry.target);
     }
-  }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-  window.scrollTo(0, 0);
-}
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-    openPage(this.textContent);
+/* =============================================
+   SKILL BARS
+   ============================================= */
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.width = entry.target.dataset.width + '%';
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.skill-fill').forEach(el => skillObserver.observe(el));
+
+/* =============================================
+   TIMELINE TABS
+   ============================================= */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('[data-tab-content]').forEach(panel => {
+      panel.classList.toggle('hidden', panel.dataset.tabContent !== tab);
+    });
+
+    document.querySelectorAll(`#${tab} .reveal`).forEach(el => {
+      el.classList.remove('visible');
+      revealObserver.observe(el);
+    });
+  });
+});
+
+/* =============================================
+   BACK TO TOP
+   ============================================= */
+if (backToTop) {
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
-for (let i = 0; i < pageShortcutButtons.length; i++) {
-  pageShortcutButtons[i].addEventListener("click", function () {
-    openPage(this.dataset.openPage);
+/* =============================================
+   CONTACT FORM
+   ============================================= */
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const original = btn.innerHTML;
+    btn.innerHTML = '<ion-icon name="checkmark-outline"></ion-icon> Message Sent!';
+    btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+    setTimeout(() => {
+      btn.innerHTML = original;
+      btn.style.background = '';
+      contactForm.reset();
+    }, 3000);
   });
 }
 
-// avatar modal logic
-const avatar = document.querySelector("#avatar"); // the <img> inside avatar-box
-const avatarModal = document.getElementById("avatarModal");
-const closeAvatarModalBtn = document.getElementById("closeAvatarModal");
-
-if (avatar) {
-  avatar.addEventListener("click", () => {
-    avatarModal.style.display = "block";
+/* =============================================
+   SMOOTH SCROLL
+   ============================================= */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const offset = navbar ? navbar.offsetHeight : 70;
+    window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
   });
-}
-
-if (closeAvatarModalBtn) {
-  closeAvatarModalBtn.addEventListener("click", () => {
-    avatarModal.style.display = "none";
-  });
-}
-
-window.addEventListener("click", (event) => {
-  if (event.target === avatarModal) {
-    avatarModal.style.display = "none";
-  }
 });

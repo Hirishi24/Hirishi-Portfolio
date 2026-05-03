@@ -1,169 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harsha Siva Akash — AI/ML Engineer</title>
-
+  <meta name="description" content="Harsha Siva Akash Saladi — AI/ML Engineer & Computer Science Student at SRM University AP">
+  <title>Harsha Siva Akash · AI/ML Engineer</title>
   <link rel="icon" href="./assets/images/Hfavicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./assets/css/style.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+<body>
 
-<body class="is-loading">
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-logo">Hirishi<span>.</span></a>
 
-  <!-- SPLASH SCREEN -->
-  <div class="splash-screen" id="splashScreen" aria-hidden="true">
-    <div class="splash-blobs">
-      <span class="blob blob-1"></span>
-      <span class="blob blob-2"></span>
-      <span class="blob blob-3"></span>
-    </div>
-    <div class="splash-glass">
-      <p class="splash-kicker">Welcome to</p>
-      <h1 class="splash-title">Hirishi Portfolio</h1>
-      <button class="splash-view-btn" id="splashViewBtn" type="button">View Portfolio</button>
-    </div>
-  </div>
-
-  <main>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img id="avatar" src="./assets/images/hirishi1.png" alt="Harsha Siva Akash Saladi" width="80" style="cursor:pointer;">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Harsha Siva Akash Saladi"><p>Harsha Siva Akash</p></h1>
-          <p class="title">AI/ML Engineer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-            <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a href="mailto:harshasivaakashsaladi@gmail.com" class="contact-link">harshasivaakashsaladi@gmail.com</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box"><ion-icon name="phone-portrait-outline"></ion-icon></div>
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-              <a href="tel:+919390220798" class="contact-link">+91 9390220798</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-              <time datetime="2005-10-24">24 October, 2005</time>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-              <address>Amaravati, Andhra Pradesh, India</address>
-            </div>
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://github.com/Hirishi24" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub">
-              <img src="./assets/images/github.png" alt="GitHub">
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/hirishi24/" class="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.instagram.com/alsohirishi/" class="social-link" target="_blank" rel="noopener noreferrer" title="Instagram">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.facebook.com/The1NonlyHirishi" class="social-link" target="_blank" rel="noopener noreferrer" title="Facebook">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-
-      <!-- NAVBAR -->
-      <nav class="navbar">
-        <ul class="navbar-list">
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link style="display:none;">Portfolio</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link style="display:none;">Blog</button>
-          </li>
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#home"     class="nav-link active">Home</a></li>
+          <li><a href="#about"    class="nav-link">About</a></li>
+          <li><a href="#skills"   class="nav-link">Skills</a></li>
+          <li><a href="#timeline" class="nav-link">Experience</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact"  class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
+      <a href="mailto:harshasivaakashsaladi@gmail.com" class="btn btn-outline nav-cta">Hire Me</a>
 
-      <!-- ABOUT -->
-      <article class="about active" data-page="about">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="container hero-container">
+      <div class="hero-text">
+        <p class="hero-kicker">Hi there, I'm</p>
+        <h1 class="hero-name">Harsha Siva<br><span class="gradient-text">Akash Saladi</span></h1>
+        <p class="hero-role">
+          <span class="role-prefix">I'm an </span>
+          <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
+        </p>
+        <p class="hero-bio">
+          Computer Science student at SRM University AP, specialising in AI/ML.
+          Passionate about IoT, Edge Computing, and building products that matter.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get In Touch</a>
+          <a href="#timeline" class="btn btn-ghost">View My Work</a>
+        </div>
+        <ul class="hero-socials">
+          <li>
+            <a href="https://github.com/Hirishi24" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+              <img src="./assets/images/github.png" alt="GitHub" width="20" height="20">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/hirishi24/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/alsohirishi/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/The1NonlyHirishi" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-        <section class="about-text">
+      <div class="hero-image">
+        <div class="hero-img-wrapper">
+          <div class="hero-img-glow"></div>
+          <img src="./assets/images/hirishi-profile-pic.png" alt="Harsha Siva Akash" class="hero-photo">
+        </div>
+        <div class="hero-badge badge-1">
+          <span class="badge-icon">🤖</span>
+          <div>
+            <p class="badge-label">Specialization</p>
+            <p class="badge-value">AI / ML</p>
+          </div>
+        </div>
+        <div class="hero-badge badge-2">
+          <span class="badge-icon">🏆</span>
+          <div>
+            <p class="badge-label">EAPCET Rank</p>
+            <p class="badge-value">#1021</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </a>
+  </section>
+
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Get to know me</p>
+        <h2 class="section-title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <div class="about-img-wrapper">
+            <img src="./assets/images/hirishi1.png" alt="Harsha Siva Akash" class="about-photo">
+            <div class="about-img-decoration"></div>
+          </div>
+
+          <div class="about-info-cards">
+            <div class="info-card">
+              <ion-icon name="mail-outline"></ion-icon>
+              <div>
+                <p class="info-label">Email</p>
+                <a href="mailto:harshasivaakashsaladi@gmail.com" class="info-value">harshasivaakashsaladi@gmail.com</a>
+              </div>
+            </div>
+            <div class="info-card">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+              <div>
+                <p class="info-label">Phone</p>
+                <a href="tel:+919390220798" class="info-value">+91 9390220798</a>
+              </div>
+            </div>
+            <div class="info-card">
+              <ion-icon name="location-outline"></ion-icon>
+              <div>
+                <p class="info-label">Location</p>
+                <p class="info-value">Amaravati, Andhra Pradesh, India</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <ion-icon name="calendar-outline"></ion-icon>
+              <div>
+                <p class="info-label">Birthday</p>
+                <p class="info-value">24 October, 2005</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content reveal">
+          <h3 class="about-sub">Dreamer, Coder &amp; Future Entrepreneur</h3>
           <p>
-            Hey, I'm Saladi Harsha Siva Akash (a.k.a Hirishi), a passionate Computer Science student from SRM University, Andhra Pradesh.
+            Hey, I'm Saladi Harsha Siva Akash (a.k.a <strong>Hirishi</strong>), a passionate Computer Science student from <strong>SRM University, Andhra Pradesh</strong>.
             I'm currently exploring the exciting world of IoT, Artificial Intelligence, and Intelligent Systems Integration through academic research.
           </p>
           <p>
@@ -171,359 +170,391 @@
             Beyond code, I value meaningful conversations, mentorship, and building a strong, supportive community.
           </p>
           <p>
-            <b>This is my digital space where I document projects, learnings, and my journey as a dreamer, coder, and future entrepreneur.</b>
+            This is my digital space where I document projects, learnings, and my journey as a dreamer, coder, and future entrepreneur.
           </p>
-        </section>
 
-        <!-- SERVICES -->
-        <section class="service">
-          <h3 class="h3 service-title">What I'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg" alt="Edge AI icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="service-item-title">Edge Computing</h4>
-                <p class="service-item-text">
-                  Designing efficient edge AI solutions for real-time data processing and analytics.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="service-item-title">Web Development</h4>
-                <p class="service-item-text">
-                  High-quality development of sites and web applications at a professional level.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="Mobile apps icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="service-item-title">Mobile Apps</h4>
-                <p class="service-item-text">
-                  Professional development of applications for iOS and Android platforms.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="Photography icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="service-item-title">Photography</h4>
-                <p class="service-item-text">
-                  High-quality photography of any category at a professional level.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </section>
-
-        <!-- Testimonials modal (hidden but required by JS) -->
-        <section class="testimonials" style="display:none;">
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-          <ul class="testimonials-list has-scrollbar">
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Rohit Patil" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Rohit Patil</h4>
-                <div class="testimonials-text" data-testimonials-text><p>Great work and dedication shown throughout the project.</p></div>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <div class="modal-container" data-modal-container>
-          <div class="overlay" data-overlay></div>
-          <section class="testimonials-modal">
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="" width="80" data-modal-img>
-              </figure>
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">2+</span>
+              <span class="stat-label">Research Projects</span>
             </div>
-            <div class="modal-content">
-              <h4 class="h3 modal-title" data-modal-title></h4>
-              <time datetime="2021-06-14">14 June, 2021</time>
-              <div data-modal-text><p></p></div>
+            <div class="stat">
+              <span class="stat-number">2023</span>
+              <span class="stat-label">Started University</span>
             </div>
-          </section>
+            <div class="stat">
+              <span class="stat-number">#1021</span>
+              <span class="stat-label">EAPCET Rank</span>
+            </div>
+          </div>
+
+          <a href="mailto:harshasivaakashsaladi@gmail.com" class="btn btn-primary">Let's Connect</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== SKILLS ===== -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">What I know</p>
+        <h2 class="section-title">My Skills</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-header">
+            <span class="skill-label">Programming Languages</span>
+            <span class="skill-pct">80%</span>
+          </div>
+          <p class="skill-tags">C · C++ · Python</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
         </div>
 
-        <section class="clients" style="display:none;"></section>
-
-      </article>
-
-
-      <!-- RESUME -->
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <!-- EDUCATION -->
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box"><ion-icon name="school-outline"></ion-icon></div>
-            <h3 class="h3">Education</h3>
+        <div class="skill-card reveal">
+          <div class="skill-header">
+            <span class="skill-label">Web Development</span>
+            <span class="skill-pct">75%</span>
           </div>
+          <p class="skill-tags">HTML · CSS · JS · Flask · Django · MERN</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        </div>
 
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">SRM University AP</h4>
-              <span>2023 — Present</span>
-              <p class="timeline-text">B.Tech in Computer Science Engineering (AI/ML Specialization)</p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Bhashyam JR College</h4>
-              <span>2021 — 2023</span>
-              <p class="timeline-text">Intermediate in M.P.C</p>
-              <p class="timeline-text achievement-highlight">
-                <span class="rank-badge">🏆 EAPCET Rank: <span class="rank-number">1021</span></span>
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Bhashyam Public School</h4>
-              <span>2014 — 2021</span>
-              <p class="timeline-text">Primary and High School</p>
-            </li>
-
-          </ol>
-        </section>
-
-        <!-- EXPERIENCE -->
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box"><ion-icon name="briefcase-outline"></ion-icon></div>
-            <h3 class="h3">Experience</h3>
+        <div class="skill-card reveal">
+          <div class="skill-header">
+            <span class="skill-label">Databases</span>
+            <span class="skill-pct">70%</span>
           </div>
+          <p class="skill-tags">MySQL · MongoDB</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        </div>
 
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Summer Research Intern — Pest Detection Using TinyML</h4>
-              <span>May 2025 — July 2025</span>
-              <p class="timeline-text">
-                Conducted research on deploying low-power image classification models using TinyML for real-time pest detection with Arduino Nano 33 BLE and OV7675 camera.
-              </p>
-              <p class="timeline-text">
-                Designed and integrated a hardware-software prototype combining IoT sensing and edge inference, enabling offline pest recognition for smart farming.
-              </p>
-              <p class="timeline-text">
-                Co-developing a patentable innovation; finalizing invention disclosure and IP filing under faculty supervision.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Research Intern — ANPR</h4>
-              <span>August 2025 — Present</span>
-              <p class="timeline-text">
-                Building an ANPR system to detect and recognize vehicle number plates from traffic videos.
-              </p>
-              <p class="timeline-text">
-                Integrating recognized vehicle details with an automatic e-challan system to flag violations and generate digital challans, reducing manual intervention.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Founder, Hirishi Cloud Kitchen</h4>
-              <span>Entrepreneurial Experience</span>
-              <p class="timeline-text">
-                Launched a delivery-only cloud kitchen; managed menu planning, vendor relationships, kitchen operations, and logistics to ensure quality and customer satisfaction.
-              </p>
-            </li>
-
-          </ol>
-        </section>
-
-        <!-- SKILLS -->
-        <section class="skill">
-          <h3 class="h3 skills-title">My Skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Programming Languages (C/C++, Python)</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Web Development (HTML, CSS, JS, Flask, Django, MERN)</h5>
-                <data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Databases (MySQL, MongoDB)</h5>
-                <data value="70">70%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">CS Fundamentals (DSA, OOPs)</h5>
-                <data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-            </li>
-
-          </ul>
-        </section>
-
-      </article>
-
-
-      <!-- PORTFOLIO (hidden) -->
-      <article class="portfolio" data-page="portfolio" style="display:none;">
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-        <section class="projects">
-          <ul class="filter-list">
-            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
-            <li class="filter-item"><button data-filter-btn>Web design</button></li>
-            <li class="filter-item"><button data-filter-btn>Applications</button></li>
-            <li class="filter-item"><button data-filter-btn>Web development</button></li>
-          </ul>
-          <div class="filter-select-box">
-            <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
-              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
-            </button>
-            <ul class="select-list">
-              <li class="select-item"><button data-select-item>All</button></li>
-              <li class="select-item"><button data-select-item>Web design</button></li>
-              <li class="select-item"><button data-select-item>Applications</button></li>
-              <li class="select-item"><button data-select-item>Web development</button></li>
-            </ul>
+        <div class="skill-card reveal">
+          <div class="skill-header">
+            <span class="skill-label">CS Fundamentals</span>
+            <span class="skill-pct">85%</span>
           </div>
-          <ul class="project-list">
-            <li class="project-item active" data-filter-item data-category="web development">
-              <a href="#">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
-                <h3 class="project-title">Finance</h3>
-                <p class="project-category">Web development</p>
-              </a>
-            </li>
-          </ul>
-        </section>
-      </article>
+          <p class="skill-tags">DSA · OOPs · Algorithms</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-header">
+            <span class="skill-label">AI / Machine Learning</span>
+            <span class="skill-pct">75%</span>
+          </div>
+          <p class="skill-tags">TinyML · Edge AI · Model Deployment</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-header">
+            <span class="skill-label">IoT &amp; Embedded Systems</span>
+            <span class="skill-pct">70%</span>
+          </div>
+          <p class="skill-tags">Arduino · BLE · Sensor Integration</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-      <!-- BLOG (hidden) -->
-      <article class="blog" data-page="blog" style="display:none;">
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-        <section class="blog-posts">
-          <ul class="blog-posts-list">
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-                    <span class="dot"></span>
-                    <time datetime="2022-02-23">Feb 23, 2022</time>
-                  </div>
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-                  <p class="blog-text">Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </section>
-      </article>
+  <!-- ===== TIMELINE ===== -->
+  <section class="section" id="timeline">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">My journey</p>
+        <h2 class="section-title">Experience &amp; Education</h2>
+      </div>
 
+      <div class="timeline-tabs">
+        <button class="tab-btn active" data-tab="experience">Experience</button>
+        <button class="tab-btn" data-tab="education">Education</button>
+      </div>
 
-      <!-- CONTACT -->
-      <article class="contact" data-page="contact">
+      <div class="timeline-content" id="experience" data-tab-content="experience">
+        <div class="timeline-track">
 
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246796.42509227664!2d80.1470959788226!3d16.506174529177196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb4aa0e9aee9%3A0xce4d5792d9ebec34!2sAmaravati%2C%20Andhra%20Pradesh%20522246%2C%20India!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">August 2025 — Present</span>
+              <h3 class="tl-title">Research Intern — ANPR</h3>
+              <p class="tl-org">SRM University AP</p>
+              <ul class="tl-points">
+                <li>Building an ANPR system to detect and recognize vehicle number plates from traffic videos.</li>
+                <li>Integrating recognized vehicle details with an automatic e-challan system to flag violations and generate digital challans, reducing manual intervention.</li>
+              </ul>
+              <span class="tl-tag">Computer Vision · Deep Learning</span>
             </div>
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">May 2025 — July 2025</span>
+              <h3 class="tl-title">Summer Research Intern — Pest Detection Using TinyML</h3>
+              <p class="tl-org">SRM University AP</p>
+              <ul class="tl-points">
+                <li>Deployed low-power image classification models using TinyML for real-time pest detection with Arduino Nano 33 BLE and OV7675 camera.</li>
+                <li>Designed hardware-software prototype combining IoT sensing and edge inference for offline pest recognition in smart farming.</li>
+                <li>Co-developing a patentable innovation — finalizing invention disclosure and IP filing under faculty supervision.</li>
+              </ul>
+              <span class="tl-tag">TinyML · IoT · Edge AI · Arduino</span>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">Entrepreneurial Experience</span>
+              <h3 class="tl-title">Founder — Hirishi Cloud Kitchen</h3>
+              <p class="tl-org">Self-Founded Venture</p>
+              <ul class="tl-points">
+                <li>Launched a delivery-only cloud kitchen; managed menu planning, vendor relationships, kitchen operations, and logistics.</li>
+                <li>Built operational systems to ensure quality, customer satisfaction, and sustainable growth.</li>
+              </ul>
+              <span class="tl-tag">Entrepreneurship · Operations · Leadership</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="timeline-content hidden" id="education" data-tab-content="education">
+        <div class="timeline-track">
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">2023 — Present</span>
+              <h3 class="tl-title">B.Tech — Computer Science Engineering</h3>
+              <p class="tl-org">SRM University AP, Amaravati</p>
+              <ul class="tl-points">
+                <li>Specialization in Artificial Intelligence &amp; Machine Learning.</li>
+                <li>Actively engaged in academic research on IoT, Edge Computing, and Intelligent Systems Integration.</li>
+              </ul>
+              <span class="tl-tag">AI / ML · Research · Computer Science</span>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">2021 — 2023</span>
+              <h3 class="tl-title">Intermediate — M.P.C</h3>
+              <p class="tl-org">Bhashyam JR College</p>
+              <ul class="tl-points">
+                <li>Mathematics, Physics, Chemistry stream.</li>
+                <li>Achieved EAPCET State Rank <strong>#1021</strong> — a top percentile performance in the state entrance examination.</li>
+              </ul>
+              <span class="tl-tag">🏆 EAPCET Rank #1021</span>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-date">2014 — 2021</span>
+              <h3 class="tl-title">Primary &amp; High School</h3>
+              <p class="tl-org">Bhashyam Public School</p>
+              <ul class="tl-points">
+                <li>Built a strong academic foundation across sciences and mathematics.</li>
+              </ul>
+              <span class="tl-tag">Academics · Foundation</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== SERVICES ===== -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">What I offer</p>
+        <h2 class="section-title">What I'm Doing</h2>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="svc-card reveal">
+          <div class="svc-icon">
+            <img src="./assets/images/icon-design.svg" alt="Edge Computing" width="36">
+          </div>
+          <h3 class="svc-title">Edge Computing</h3>
+          <p class="svc-text">Designing efficient edge AI solutions for real-time data processing and analytics on resource-constrained devices.</p>
+        </div>
+
+        <div class="svc-card reveal">
+          <div class="svc-icon">
+            <img src="./assets/images/icon-dev.svg" alt="Web Development" width="36">
+          </div>
+          <h3 class="svc-title">Web Development</h3>
+          <p class="svc-text">High-quality development of websites and web applications using modern frameworks and best practices.</p>
+        </div>
+
+        <div class="svc-card reveal">
+          <div class="svc-icon">
+            <img src="./assets/images/icon-app.svg" alt="Mobile Apps" width="36">
+          </div>
+          <h3 class="svc-title">Mobile Apps</h3>
+          <p class="svc-text">Professional development of cross-platform applications for both iOS and Android ecosystems.</p>
+        </div>
+
+        <div class="svc-card reveal">
+          <div class="svc-icon">
+            <img src="./assets/images/icon-photo.svg" alt="Photography" width="36">
+          </div>
+          <h3 class="svc-title">Photography</h3>
+          <p class="svc-text">High-quality photography of any category captured with a keen eye for detail and professional finish.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2 class="section-title">Contact Me</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info reveal">
+          <h3 class="contact-sub">Let's work together</h3>
+          <p class="contact-desc">
+            I'm always open to discussing research opportunities, internships, or just having a good conversation about technology and ideas. Drop me a message!
+          </p>
+
+          <ul class="contact-details">
+            <li class="contact-detail-item">
+              <div class="contact-icon"><ion-icon name="mail-outline"></ion-icon></div>
+              <div>
+                <p class="cdi-label">Email</p>
+                <a href="mailto:harshasivaakashsaladi@gmail.com" class="cdi-value">harshasivaakashsaladi@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-detail-item">
+              <div class="contact-icon"><ion-icon name="phone-portrait-outline"></ion-icon></div>
+              <div>
+                <p class="cdi-label">Phone</p>
+                <a href="tel:+919390220798" class="cdi-value">+91 9390220798</a>
+              </div>
+            </li>
+            <li class="contact-detail-item">
+              <div class="contact-icon"><ion-icon name="location-outline"></ion-icon></div>
+              <div>
+                <p class="cdi-label">Location</p>
+                <p class="cdi-value">Amaravati, Andhra Pradesh, India</p>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="contact-socials">
+            <li>
+              <a href="https://github.com/Hirishi24" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                <img src="./assets/images/github.png" alt="GitHub" width="20" height="20">
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/hirishi24/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/alsohirishi/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/The1NonlyHirishi" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-form-wrap reveal">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me more..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <ion-icon name="paper-plane-outline"></ion-icon>
+              Send Message
             </button>
           </form>
-        </section>
+        </div>
 
-      </article>
+      </div>
 
+      <div class="map-container reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d246796.42509227664!2d80.1470959788226!3d16.506174529177196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb4aa0e9aee9%3A0xce4d5792d9ebec34!2sAmaravati%2C%20Andhra%20Pradesh%20522246%2C%20India!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+          loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
+  </section>
 
-  </main>
 
-  <!-- Avatar zoom modal -->
-  <div id="avatarModal" style="display:none;">
-    <span id="closeAvatarModal">&times;</span>
-    <img src="./assets/images/hirishi-profile-pic.png" alt="Zoomed Avatar">
-  </div>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p class="footer-brand">Hirishi<span>.</span></p>
+      <p class="footer-copy">© 2025 Harsha Siva Akash Saladi. All rights reserved.</p>
+      <ul class="footer-socials">
+        <li>
+          <a href="https://github.com/Hirishi24" target="_blank" rel="noopener" class="social-icon sm" aria-label="GitHub">
+            <img src="./assets/images/github.png" alt="GitHub" width="16" height="16">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/hirishi24/" target="_blank" rel="noopener" class="social-icon sm" aria-label="LinkedIn">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/alsohirishi/" target="_blank" rel="noopener" class="social-icon sm" aria-label="Instagram">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </button>
 
   <script src="./assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </body>
 </html>
