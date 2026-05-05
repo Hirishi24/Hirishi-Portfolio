@@ -162,7 +162,8 @@ function animateCounter(el) {
     const progress = Math.min(elapsed / duration, 1);
     const ease = 1 - Math.pow(1 - progress, 3);
     const current = Math.round(ease * target);
-    el.textContent = prefix + current.toLocaleString() + suffix;
+    const displayValue = (target > 1500 && target < 2100) ? current : current.toLocaleString();
+    el.textContent = prefix + displayValue + suffix;
     if (progress < 1) requestAnimationFrame(update);
   }
   requestAnimationFrame(update);
